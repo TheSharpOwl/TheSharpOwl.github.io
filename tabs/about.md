@@ -11,7 +11,7 @@ title: About
 ### C++ Developer @[RoadAR](https://www.road.ly/) and 4th year Software Engineering Bachelor. <br>
 <br>
 
-* ### [Resume Link](../files/resume.pdf)
+* ### [Resume Link](https://github.com/TheSharpOwl/TheSharpOwl.github.io/raw/master/files/resume.pdf)
 * ### Github: [TheSharpOwl](https://github.com/TheSharpOwl) 
 * ### Codeforces: [Silver_](http://codeforces.com/profile/Silver_)
 * ### [Linkedin](https://www.linkedin.com/in/mohamad-ziad-a-999771118/)
