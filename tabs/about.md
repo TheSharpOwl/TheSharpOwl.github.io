@@ -15,7 +15,7 @@ title: About
 * ### Github: [TheSharpOwl](https://github.com/TheSharpOwl) 
 * ### Codeforces: [Silver_](http://codeforces.com/profile/Silver_)
 * ### [Linkedin](https://www.linkedin.com/in/mohamad-ziad-a-999771118/)
-* ### [Youtube Channel](https://www.youtube.com/channel/UCypgX5uHk5ezqPCVKIVq2ow) For now I just upload demos for my projects or some gameplay clips XD
+* ### [Youtube Channel](https://www.youtube.com/channel/UCypgX5uHk5ezqPCVKIVq2ow) I just upload demos for my projects or some gameplay clips.
 <br>
 # Experience:
 
