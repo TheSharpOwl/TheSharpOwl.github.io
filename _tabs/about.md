@@ -29,7 +29,7 @@ title: About
 
 * #### **Others** : OpenGL, Unreal Engine, Unity, Data structres and Algorithms.
 
-* #### **Learning** : Direct3D12
+* #### **Learning** : Direct3D12, React 
 
 # Projects
 
