@@ -20,7 +20,7 @@ As a start I will be using Microsoft's Hello Triangle example from the [D3D12Hel
 I will isolate the [HelloTriangle](https://github.com/microsoft/DirectX-Graphics-Samples/tree/master/Samples/Desktop/D3D12HelloWorld/src/HelloTriangle) example alone and use CMake
 as a build system for that standalone project.
 
-> You don't have to do anything but I just wanted to explain how I got to the CMake file in the repository for the code of this post. Also, A true C++ programmer should be familiar with CMake :sunglasses:
+> You don't have to do anything but I just wanted to explain how I got to the CMake file in the repository for the code of this post. Also, A true C++ programmer should be familiar with CMake :P
 {: .prompt-info }
 
 1. Let's take only the source and header files in [HelloTriangle's](https://github.com/microsoft/DirectX-Graphics-Samples/tree/master/Samples/Desktop/D3D12HelloWorld/src/HelloTriangle) folder, put them in a folder called `HelloTriangle` (for example) and remove everything else.
