@@ -25,6 +25,7 @@ as a build system for that standalone project.
 
 1. Let's take only the source and header files in [HelloTriangle's](https://github.com/microsoft/DirectX-Graphics-Samples/tree/master/Samples/Desktop/D3D12HelloWorld/src/HelloTriangle) folder, put them in a folder called `HelloTriangle` (for example) and remove everything else.
 2. Now we will create a `CMakeLists.txt` file:
+
 ```cmake
 project("Hello Triangle") # a
 cmake_minimum_required(VERSION 3.21) # b
