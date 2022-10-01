@@ -6,9 +6,9 @@ tags: [cpp, direct3d12, cmake, visual studio]
 comments: false # temp TODO remove
 ---
 
-Note: This post is still in progress (don't worry I am working on it almost everyday, I didn't abandon it and it will be ready very soon). However, feel free to message me about improving the current draft if you have any ideas :smile:
+Note: This post is still in progress (don't worry I am working on it almost everyday, I didn't abandon it and it will be ready very soon). However, feel free to message me about improving the current draft if you have any ideas
 
-While learning Direct3D12 and working on my game engine [Mizu](https://github.com/TheSharpOwl/Mizu) I found that there are many ways to compile shaders but there is not clear documentation about the differences and how to apply them (especially if you are using CMake as a build system). Therefore, as usual no clear documentation? Time to write a post on the blog )
+While learning Direct3D12 and working on my game engine [Mizu](https://github.com/TheSharpOwl/Mizu) I found that there are many ways to compile shaders but there is no clear documentation about the different shader compilation ways and how to apply them (especially if you are using CMake as a build system). Therefore, as usual no clear documentation? Time to write a post on this blog
 
 # 1. Getting the intial HelloTriangle project
 
@@ -27,14 +27,12 @@ as a build system for that standalone project.
 2. Now we will create a `CMakeLists.txt` file:
 
 ```cmake
-project("Hello Triangle") # a
-cmake_minimum_required(VERSION 3.21) # b
+project("Hello Triangle")
+cmake_minimum_required(VERSION 3.21)
 
-# c
 add_definitions(-D_UNICODE)
 add_definitions(-DUNICODE)
 
-# d
 link_libraries(
 d3d12.lib
 dxguid.lib
@@ -42,7 +40,6 @@ DXGI.lib
 d3dcompiler.lib
 )
 
-# e
 set(HelloTriangle1_SOURCES
 D3D12HelloTriangle.cpp
 DXSample.cpp
@@ -74,6 +71,12 @@ target_include_directories(HelloTriangle1 PUBLIC ${CMAKE_CURRENT_LIST_DIR})
 source_group("Shaders" FILES ${HelloTriangle1_SHADERS})
 ```
 
+Explaination of the lines:
+
+* 1 to 2: In any cmake file we should define a project name and the minimum version which the person who is building the project should have.
+* 4 to 5: Because we use wide string aka `std::wstring` in C++ for Direct3D API, this definition should be added from CMake otherwise we will get errors because the project will not know if you should use ANSI or UNICODE so you should define which one is it for the project [More info in this question on StackOverFlow](https://stackoverflow.com/questions/6401036/unicode-compiler-error-on-simple-function).
+* 7 to 12: We should link to Direct3D libraries but here I just used `link_libraries` to link to all the libraries and executables because the project is already small and that won't be an issue here.
+* 
 
 
 To be continued...
