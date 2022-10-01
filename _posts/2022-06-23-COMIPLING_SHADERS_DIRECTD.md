@@ -47,7 +47,6 @@ stdafx.cpp
 Win32Application.cpp
 )
 
-# f
 set(HelloTriangle1_HEADERS
 D3D12HelloTriangle.h
 DXSample.h
@@ -56,17 +55,14 @@ stdafx.h
 Win32Application.h
 )
 
-# g
 set(HelloTriangle1_SHADERS
 shaders.hlsl
 )
 
-# h
 set_source_files_properties(shaders.hlsl PROPERTIES VS_TOOL_OVERRIDE "None")
 
-# i
 add_executable(HelloTriangle1 WIN32 Main.cpp ${HelloTriangle1_HEADERS} ${HelloTriangle1_SOURCES} ${HelloTriangle1_SHADERS})
-# j
+
 target_include_directories(HelloTriangle1 PUBLIC ${CMAKE_CURRENT_LIST_DIR})
 source_group("Shaders" FILES ${HelloTriangle1_SHADERS})
 ```
@@ -76,7 +72,20 @@ Explaination of the lines:
 * 1 to 2: In any cmake file we should define a project name and the minimum version which the person who is building the project should have.
 * 4 to 5: Because we use wide string aka `std::wstring` in C++ for Direct3D API, this definition should be added from CMake otherwise we will get errors because the project will not know if you should use ANSI or UNICODE so you should define which one is it for the project [More info in this question on StackOverFlow](https://stackoverflow.com/questions/6401036/unicode-compiler-error-on-simple-function).
 * 7 to 12: We should link to Direct3D libraries but here I just used `link_libraries` to link to all the libraries and executables because the project is already small and that won't be an issue here.
-* 
+* 14 to 19: Just make a list `HelloTriangle1_SOURCES` which contains the names of the `cpp` files.
+* 21 to 27: same as previous point but a list for headers instead.
+* 29 to 31: Making a list for Shader HLSL files (because we wanna tell Visual Studio to include them and treat them in a special way)
+* 33: Visual Studio usually tries to compile the HLSL files in the default way automatically. For example, if we have a Pixel Shader it will detect its type and the HLSL compiler will make sure it is fine and without syntax errors. However, in this case we have put all shaders in one file and the default behaviour will cause compilation errors and settings should be changed. You can change it manually, but in this case you either have to upload the sln file and other related files with it, or you can just add this option in CMake which will make the project settings not using this default behaviour by default and not calling the shader compiler. We will talk about the shader compiler later in this post.
+* 35: We add an executable called `HelloTriangle1` with type `WIN32` because otherwise it will think it's an console application by default and the way we write the main function in Direct3D applications will cause compiler errors and not work. Then, we add all our files from the 3 lists (there is no need usually to add headers but I just added everything all together with sources).
+
+> If you don't add Shader files in the list of sources given to `add_executable`, they will not appear in the project in Visual Studio and it will be inconvinent to use another editor or window to modify their code.
+{: .prompt-danger }
+
+* 37: We make the current `CMAKE_CURRENT_LIST_DIR` (where the current CMake file is) a directory visible to `#include` so that we can import our headers in any source file. Again, since the project is small I made everything visible to `#include`
+* 38: `source_group` is used to make Visual Studio put the shader files inside a special folder (`Shaders` in this case) because it will be convinent for organization inside Visual Studio's solution explorer
+
+> If you don't add a `source_group` for shaders, they will be in the same directory level of `source files` and `header files` in Visual Studio's solution explorer which works of course but feels weird and not organized in an elegant way
+{: .prompt-warning }
 
 
 To be continued...
