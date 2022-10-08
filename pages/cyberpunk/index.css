@@ -1,3 +1,10 @@
+.header-container {
+    background-color:#002746;
+    width: 100%;
+}
+body {
+    margin: 0;
+}
 .header {
     display: flex;
     justify-content: space-between;
@@ -10,6 +17,7 @@
     text-align: center;
     align-items: center;
     gap: 40%;
+    color: #ffff0b;
 
 }
 
