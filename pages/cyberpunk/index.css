@@ -1,0 +1,28 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: center;
+}
+.header-links {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    gap: 40%;
+
+}
+
+div.header-links ul {
+padding-left: 0;
+white-space: nowrap;
+}
+.header-image {
+    height: 115px;
+    width: auto;
+}
+
+/* since we won't have any bullet list for now */
+ul {
+    list-style-type: none;
+  }
