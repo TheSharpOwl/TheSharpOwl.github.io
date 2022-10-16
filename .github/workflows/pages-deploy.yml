@@ -19,11 +19,8 @@ jobs:
         with:
           fetch-depth: 0  # for posts's lastmod
       - name: Checkout Pages
-        uses: actions/checkout@v2
-        with:
-          repo: TheSharpOwl/CyberpunkShowcase
-          path: pages/CyberpunkShowcase
-          fetch-depth: 0
+        run: |
+          git clone https://github.com/TheSharpOwl/CyberpunkShowcase.git /pages
 
           
 
