@@ -20,7 +20,7 @@ jobs:
           fetch-depth: 0  # for posts's lastmod
       - name: Checkout Pages
         run: |
-          git clone https://github.com/TheSharpOwl/CyberpunkShowcase.git /pages
+          git clone https://github.com/TheSharpOwl/CyberpunkShowcase.git pages
 
           
 
