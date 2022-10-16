@@ -18,6 +18,14 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0  # for posts's lastmod
+      - name: Checkout Pages
+        uses: actions/checkout@v2
+        with:
+          repo: TheSharpOwl/CyberpunkShowcase
+          path: pages/CyberpunkShowcase
+          fetch-depth: 0
+
+          
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
