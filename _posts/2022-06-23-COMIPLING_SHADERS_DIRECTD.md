@@ -1,5 +1,5 @@
 ---
-title: Compiling HLSL Shaders with Direct3D12 and CMake (With Error Report) [IN PROGRESS]
+title: Compiling HLSL Shaders with Direct3D12 and CMake (With Error Reporting) Part 1
 date: 2022-06-23 22:00:00 +/-0800
 categories: [Computer_Graphics, Direct3D_12]
 tags: [cpp, direct3d12, cmake, visual studio]
@@ -88,4 +88,75 @@ Explaination of the lines:
 {: .prompt-warning }
 
 
+Now there are 3 main ways we can use shaders in our Direct3D program:
+1. Using `D3DCompileFromFile` function
+2. Let VS automatically do it for us
+3. Using the [`DirectXShaderCompiler`](https://github.com/microsoft/DirectXShaderCompiler)
+
+We will talk about the first and second one here (I will reference them here as I write them)
+
+if you check the file [`D3D12HelloTriangle.cpp`](https://github.com/TheSharpOwl/Direct3DExamples/blob/main/HelloTriangle/D3D12HelloTriangle.cpp) line number [163](https://github.com/TheSharpOwl/Direct3DExamples/blob/2e469bb5a4470a5035ef41c742626c4a34517ebd/HelloTriangle/D3D12HelloTriangle.cpp#L163) and the one after it, you will see the following:
+
+```cpp
+ThrowIfFailed(D3DCompileFromFile(GetAssetFullPath(L"../../shaders.hlsl").c_str(), nullptr, nullptr, "VSMain", "vs_5_0", compileFlags, 0, &vertexShader, nullptr));
+        ThrowIfFailed(D3DCompileFromFile(GetAssetFullPath(L"../../shaders.hlsl").c_str(), nullptr, nullptr, "PSMain", "ps_5_0", compileFlags, 0, &pixelShader, nullptr));
+
+```
+
+Here we use the function `ThrowIfFailed` which throws and exception if the expression inside it returns a failure through its `HLRESULT` return type. 
+Inside it, we got `D3DCompileFromFile` with the following signature:
+```cpp
+HRESULT D3DCompile(
+  [in]            LPCVOID                pSrcData,
+  [in]            SIZE_T                 SrcDataSize,
+  [in, optional]  LPCSTR                 pSourceName,
+  [in, optional]  const D3D_SHADER_MACRO *pDefines,
+  [in, optional]  ID3DInclude            *pInclude,
+  [in, optional]  LPCSTR                 pEntrypoint,
+  [in]            LPCSTR                 pTarget,
+  [in]            UINT                   Flags1,
+  [in]            UINT                   Flags2,
+  [out]           ID3DBlob               **ppCode,
+  [out, optional] ID3DBlob               **ppErrorMsgs
+);
+```
+
+Where:
+
+1. `[in] pFileName`: 
+A pointer to a constant null-terminated string that contains the name of the file that contains the shader code. it takes a wide string literall (usually passed like this: `L"content here"`).
+> Here I used `GetAssetFullPath function and passed the relative path so that it will return the full path like C:/Junk/shader.hlsl because the compiler takes the full path only (seems project relative one is different from the compiler relative one so GetAssetFullPath results gets evaluated relative to project then it's passed full to compiler. Remember that the compiler is in program files with visual studio compiler somewhere so it's relative folders and files are totally somewhere else). Also, I used `.c_str()` in the end because it accepts a literal not a wstring variable so I passed the literal out of the variable.
+{: .prompt-warning }
+
+2. `[in, optional] pDefines`:
+An optional array of D3D_SHADER_MACRO structures that define shader macros. Here we don't need that so we passed `nullptr` (or you can pass `NULL`)
+3.  `[in, optional] pInclude`:
+An optional pointer to an ID3DInclude interface that the compiler uses to handle include files. Here we didn't include any files so we pass `nullptr` too
+4. `[in] pEntrypoint`:
+A pointer to a constant null-terminated string that contains the name of the main function of the shader (like `int main()` in C++ and C but here you don't have to call it `main` just tell the compiler where is it)
+5. `[in] pTarget`: A pointer to a constant null-terminated string that specifies the shader target or set of shader features to compile against. So here I passed `vs_5_0` to first call to tell the function we wanna use version 5 and this is a vertex shader (vs) and same idea for second one to use the pixel shader (ps). You can check the list of such `compiler targets` [here](https://learn.microsoft.com/en-us/windows/win32/direct3dhlsl/specifying-compiler-targets)
+6. `[in] Flags1`:
+Shader compile options and we can use OR operator between many of them if we wanna use more than one. Full list of such options [here](https://learn.microsoft.com/en-us/windows/win32/direct3dhlsl/d3dcompile-constants). Here we used `D3DCOMPILE_DEBUG | D3DCOMPILE_SKIP_OPTIMIZATION` in case of debug and nothing in case of Release and stored them in `compileFlags` variable.
+7. `[in] Flags2`:
+Effect compile options (`Effect options` here and `Compiler options` in the ones before them). Full list [here](https://learn.microsoft.com/en-us/windows/win32/direct3dhlsl/d3dcompile-effect-constants). They are not needed here so we passed 0.
+9. `[out] ppCode`:
+A pointer to a variable that receives a pointer to the `ID3DBlob` interface that you can use to access the compiled code. So we passed here the reference to `ComPtr<ID3DBlob> vertexShader` which is `&vertexShader`.
+
+> Don't forget that you have for ComPtr: RelaseAndGetAddressOf()which is the same as & or you can use GetAddressOf() function if you don't wanna release unlike what we did here because we wanna pass it to store the returned info so it does not matter
+{: .prompt-warning }
+
+10. `[out, optional] ppErrorMsgs`
+An optional pointer to a variable that receives a pointer to the ID3DBlob interface and we can use it to get the compiler error messages. We passed `nullptr` for now and will show later how it works. I advise you to put it as a good practice to detect errors and understand them easier.
+
 To be continued...
+
+References:
+1. [D3DCompileFromFile function Microsoft docs](https://learn.microsoft.com/en-us/windows/win32/api/d3dcompiler/nf-d3dcompiler-d3dcompilefromfile)
+<!---
+You can find the current project inside this folder in `Direct3DExamples` repository in this [link](https://github.com/TheSharpOwl/Direct3DExamples/tree/main/HelloTriangle)
+
+Hope everything is clear and if you have any feedback feel free to contact me on discord, comment here or email.
+
+TODO add advantages and disadvantages of this way and finish the tutorial for now
+Thanks for reading !
+-->
