@@ -8,7 +8,7 @@ title: About
 # MIT License
 ---
 ## Mohamad Ziad Alkabakibi
-### C++ Developer at <a href="https://road.ly/" target="_blank"><img src="https://thumb.tildacdn.com/tild3062-3238-4231-a436-663638313033/-/resize/158x/-/format/webp/image_1.png" width="15%" height="20%"></a>
+### C++ Developer at <a href="https://road.ly/" target="_blank"><img src="https://thumb.tildacdn.com/tild3062-3238-4231-a436-663638313033/-/resize/158x/-/format/webp/image_1.png" width="12%" height="10%"></a>
 <br>
 
 ### Currently working with Embedded Systems, interested in Game Development.
@@ -27,28 +27,25 @@ title: About
 
 * #### **Programming** : C++ (favorite), Golang, C#, Python.
 
-* #### **Others** : OpenGL, Unreal Engine, Unity, Data structres and Algorithms.
+* #### **Others** : OpenGL, Unreal Engine, Unity, Data structres and Algorithms, SFML.
 
 * #### **Learning** : Direct3D12, React 
 <br>
 
-### Github profile stats:
-<br>
-
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=thesharpowl&layout=compact&theme=merko)](https://github.com/anuraghazra/github-readme-stats)
-
 # Projects
 
 1. #### <a href="https://github.com/TheSharpOwl/Mizu" target="_blank">Mizu</a> : Game Engine Made with C++ and DirectX12. It has also Mesh shaders expirement and contains the graduation project.
+2. <a href="https://github.com/TheSharpOwl/WonderLand" target="_blank">Wonderland</a> Wonderland: 2D survival game made using C++ SFML with its own animation classes, control and bot management.
+<iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/EY9d98auyXM/" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
 
-2. #### <a href="https://github.com/TheSharpOwl/Roll" target="_blank">Roll Chat Bot</a> : Chatbot made with Python using Microsoftâ€™s QnA framework and deployed on Heroku and using REST API to communicate with the QnA service. Planning to add features such as weather and reminders soon.
+3. #### <a href="https://github.com/TheSharpOwl/Roll" target="_blank">Roll Chat Bot</a> : Chatbot made with Python using Microsoftâ€™s QnA framework and deployed on Heroku and using REST API to communicate with the QnA service. Planning to add features such as weather and reminders soon.
 <div style="text-align:center">
 <img src="https://github.com/TheSharpOwl/TheSharpOwl.github.io/raw/master/files/roll_1.jpg" alt="roll_screen_shot1" width="250"/>
 <img src="https://github.com/TheSharpOwl/TheSharpOwl.github.io/raw/master/files/roll_2.jpg" alt="roll_screen_shot2" width="250"/>
 <img src="https://github.com/TheSharpOwl/TheSharpOwl.github.io/raw/master/files/roll_3.jpg" alt="roll_screen_shot3" width="250"/>
 </div>
 
-3. #### <a href="https://github.com/TheSharpOwl/SnakeGame" target="_blank">Snake Game</a>: Classic game made with C++ using Win32API (still working on using Direct3D12 for drawing)
+3. #### <a href="https://github.com/TheSharpOwl/SnakeGame" target="_blank">Snake Game</a>: Classic game made with C++ using Win32API
 
 4. #### <a href="https://github.com/TheSharpOwl/Trackzam" target="_blank">Trackzam</a>: Tracker for general education/work purposes where information is collected to know if a person is paying attention or not, I implemented a keylogger/mouseLogger and User Accounts on the Windows app client using C#.
 
@@ -61,3 +58,7 @@ title: About
 
 8. #### <a href="https://github.com/TheSharpOwl/switching-generator" target="_blank">Switching Generator</a>: A practical implementation of a Switching Generator paper using Verilog HDL.<br>
 
+### Github profile stats:
+<br>
+
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=thesharpowl&layout=compact&theme=merko)](https://github.com/anuraghazra/github-readme-stats)
