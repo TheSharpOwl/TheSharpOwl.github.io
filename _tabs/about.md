@@ -43,7 +43,7 @@ order: 4
 
 4. #### <a href="https://github.com/TheSharpOwl/Trackzam" target="_blank">Trackzam</a>: Tracker for general education/work purposes where information is collected to know if a person is paying attention or not, I implemented a keylogger/mouseLogger and User Accounts on the Windows app client using C#.
 
-5. #### <a href="https://github.com/TheSharpOwl/Breakout" target="_blank">Breakout</a>: Atari classic game made with C++ and OpenGL (done with the help of <a href="" target="_blank">learnopengl.com</a>(https://learnopengl.com)).<br>
+5. #### <a href="https://github.com/TheSharpOwl/Breakout" target="_blank">Breakout</a>: Atari classic game made with C++ and OpenGL (done with the help of <a href="https://learnopengl.com" target="_blank">learnopengl.com</a>)).<br>
 
 <!-- 2. #### <a href="" target="_blank">Battle Tanks</a>(https://github.com/TheSharpOwl/04_BattleTank) : Tanks game inspired from the world of tanks (with help of <a href="" target="_blank">Udemy's The Unreal Engine Developer C++ Course</a>(https://www.udemy.com/course/unrealcourse/)).<br> -->
 
