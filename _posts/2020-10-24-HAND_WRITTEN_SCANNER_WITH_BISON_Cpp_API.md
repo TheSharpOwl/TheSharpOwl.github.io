@@ -2,7 +2,7 @@
 title: Using Bison C++ API With Hand-written Scanner
 date: 2020-10-24 22:00:00 +/-0800
 categories: [Compilers, Bison]
-tags: [Cpp, Bison]
+tags: [cpp, Bison]
 ---
 In this post, I'll talk about how can you use Bison's C++ API. Take a look at the [tutorial I wrote about using C API](https://thesharpowl.github.io/posts/HAND_WRITTEN_SCANNER_WITH_BISON_C_API/) especially the parts about installing Bison latest version and Compiler Construction. Also, to gain more knowledge about how Bison works.<br>
 <br>
