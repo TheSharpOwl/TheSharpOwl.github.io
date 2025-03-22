@@ -57,11 +57,11 @@ jobs:
             \-\-ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/"
 
       - name: Checkout Cyber Punk site
-        run: git clone https://github.com/TheSharpOwl/CyberpunkShowcase.git pages/cyberpunk # Add cyberpunk repo in the pages directory
+        run: git clone https://github.com/TheSharpOwl/CyberpunkShowcase.git _site/pages/cyberpunk # Add cyberpunk repo in the pages directory
       - name: Checkout Rock Paper Scissors site
-        run: git clone https://github.com/TheSharpOwl/rock-paper-scissors.git pages/rps # Add rock-paper-scissors repo in the pages directory
+        run: git clone https://github.com/TheSharpOwl/rock-paper-scissors.git _site/pages/rps # Add rock-paper-scissors repo in the pages directory
       - name: Checkout Etch-a-Sketch site
-        run: git clone https://github.com/TheSharpOwl/Etch-a-Sketch.git pages/drawing # Add etch-a-sketch repo in the pages directory
+        run: git clone https://github.com/TheSharpOwl/Etch-a-Sketch.git _site/pages/drawing # Add etch-a-sketch repo in the pages directory
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
