@@ -21,7 +21,7 @@
     "lint:scss": "stylelint _sass/**/*.scss",
     "lint:fix:scss": "npm run lint:scss -- --fix",
     "test": "npm run lint:scss",
-    "prepare": "husky"
+    "prepare": "husky && husky install"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
@@ -42,11 +42,11 @@
     "@semantic-release/git": "^10.0.1",
     "concurrently": "^9.1.0",
     "conventional-changelog-conventionalcommits": "^8.0.0",
-    "husky": "^9.1.7",
+    "husky": "^8.0.0",
     "purgecss": "^7.0.2",
     "rollup": "^4.27.4",
     "semantic-release": "^24.2.0",
-    "stylelint": "^16.10.0",
+    "stylelint": "^16.16.0",
     "stylelint-config-standard-scss": "^13.1.0"
   },
   "prettier": {

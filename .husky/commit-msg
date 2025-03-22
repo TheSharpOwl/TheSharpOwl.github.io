@@ -1,1 +1,3 @@
+#!/bin/sh
+echo "executing post-commit"
 npx --no -- commitlint --edit $1
