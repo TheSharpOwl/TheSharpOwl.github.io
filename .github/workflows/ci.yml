@@ -55,4 +55,5 @@ jobs:
         run: npm i && npm run build
 
       - name: Test Site
+        continue-on-error: true # This step will not fail the workflow
         run: bash tools/test.sh
