@@ -34,7 +34,12 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0 # for posts's lastmod
-
+      - name: Checkout Cyber Punk site
+        run: git clone https://github.com/TheSharpOwl/CyberpunkShowcase.git pages/cyberpunk # Add cyberpunk repo in the pages directory
+      - name: Checkout Rock Paper Scissors site
+        run: git clone https://github.com/TheSharpOwl/rock-paper-scissors.git pages/rps # Add rock-paper-scissors repo in the pages directory
+      - name: Checkout Etch-a-Sketch site
+        run: git clone https://github.com/TheSharpOwl/Etch-a-Sketch.git pages/drawing # Add etch-a-sketch repo in the pages directory
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
